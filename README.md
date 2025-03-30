@@ -309,3 +309,58 @@ join customers c
 on c.customer_id = o.customer_id
 group by  b.brand_name,c.city
  ```
+
+**Insights and Decision** :  Identifying which bike brands perform best in different cities.Ensuring efficient supply chain management to meet city-wise demand.Promote specific bike brands based on regional preferences.
+
+
+* **Every year sales of bikes from each store**
+
+  ```sql
+
+  SELECT 
+        s.store_name, b.brand_name ,
+        TO_CHAR(o.order_date, 'YYYY') AS years, 
+        ROUND(SUM(oi.list_price)) AS yearly_Sales
+    from stores s
+	join orders o
+	on s.store_id = o.store_id
+	join order_items oi
+	on oi.order_id = o.order_id
+	join products p
+	on p.product_id = oi.product_id
+	join brands b
+	on b.brand_id = p.brand_id
+    GROUP BY s.store_name, b.brand_name,years
+	order by  s.store_name 
+  ```
+
+**Insights and Decision** : Identify stores with increasing or declining sales trends.Stock more bikes in high-performing stores and reduce excess inventory in low-performing ones.
+
+* **Monthly sales of each bike brands and 1 year total revenue**
+
+  ```sql
+
+  WITH MonthlySales AS (
+    SELECT 
+        b.brand_name, 
+        TO_CHAR(o.order_date, 'MM') AS months, 
+        ROUND(SUM(oi.list_price)) AS Monthly_Sales
+    FROM brands b
+    JOIN products p ON p.brand_id = b.brand_id
+    JOIN order_items oi ON oi.product_id = p.product_id
+    JOIN orders o ON o.order_id = oi.order_id
+    GROUP BY b.brand_name, TO_CHAR(o.order_date, 'MM')
+)
+SELECT 
+    brand_name, 
+    months, 
+    Monthly_Sales,
+    SUM(Monthly_Sales) OVER(
+        PARTITION BY brand_name 
+        ORDER BY months::INTEGER
+    ) AS Cumulative_Sales 
+FROM MonthlySales
+ORDER BY brand_name, months::INTEGER;
+
+  ```
+**Insights and Decision** :
