@@ -140,8 +140,7 @@ zip_code int
 );
 
 ```
-
-**CRUD Operations** : 
+# CRUD Operations : 
 
 **Create** – Inserting new records into a database.
 
@@ -210,9 +209,9 @@ order by 3 desc
 select * from brands_trend
 ```
 
-**Data Analysis &  Insights**
+# Data Analysis &  Insights
 
-List Top Five customer bought most expensive Bike(dollar)
+* **List Top Five customer bought most expensive Bike(dollar)**
 
 ```sql
 
@@ -233,6 +232,26 @@ Tailoring marketing efforts to target high-spending customers with exclusive off
 ![Screenshot 2025-03-30 214552](https://github.com/user-attachments/assets/c63f9d4e-9546-4ade-a3cd-cfbd83884717)
 
 
-Top 3 Brands of bike which got highest Orders 
+* **Top 3 Brands of bike which got highest Orders**
 
+```sql
 
+select b.brand_name, count(o.order_id) as Number_of_orders
+from brands b
+join products pc
+on b.brand_id = p.brand_id
+join order_items oi
+on p.product_id = oi.product_id
+join orders o
+on oi.order_id = o.order_id
+group by 1
+order by 2 desc
+limit 3
+
+```
+**Insights and Decision** : Identifying the most in-demand bike brands among customers. Investing in promotions and advertising for top-performing brands.
+
+![graph_visualiser-1743353395235](https://github.com/user-attachments/assets/937e8549-c12d-419e-a43f-450229d99a3b)
+
+* **Name of top 10 Bikes who got most discount**
+ 
