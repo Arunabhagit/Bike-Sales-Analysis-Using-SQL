@@ -12,6 +12,4 @@
 This project demonstrates the implementation of a Bike Sales Data Analysis using SQL. It includes creating and managing tables, performing CRUD operations, and executing advanced SQL queries. The goal is to showcase skills in database  manipulation, querying and find out many insights from the data. 
 
 
-![60386e15c30e9c7664ee3fa6caea2e88](https://github.com/user-attachments/assets/e2ccde99-ca15-4757-9799-cc49b1384282)
-
-
+![bike-shop-illustration-with-shoppers-people-choosing-cycles-accessories-or-gear-equipment-for-riding-in-flat-cartoon-background-design-vector](https://github.com/user-attachments/assets/dec28b77-ccc9-44c4-883e-d7d8410e2e37)
