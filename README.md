@@ -338,9 +338,8 @@ group by  b.brand_name,c.city
 
 * **Monthly sales of each bike brands and 1 year total revenue**
 
-  ```sql
-
-  WITH MonthlySales AS (
+```sql
+WITH MonthlySales AS (
     SELECT 
         b.brand_name, 
         TO_CHAR(o.order_date, 'MM') AS months, 
@@ -361,6 +360,10 @@ SELECT
     ) AS Cumulative_Sales 
 FROM MonthlySales
 ORDER BY brand_name, months::INTEGER;
+```
 
-  ```
 **Insights and Decision** :
+
+
+
+
