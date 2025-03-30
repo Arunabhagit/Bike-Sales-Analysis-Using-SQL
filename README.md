@@ -40,8 +40,103 @@ brand_id int,
 brand_name varchar(20)
 );
 
+-- Table Name 'categories' 
+
+create table categories
+(
+category_id int,
+category_name varchar(20)
+);
+
+-- Table Name 'customers' 
+
+create table customers
+(
+customer_id int,
+first_name varchar(20),
+last_name varchar(20),
+phone varchar(30),
+email varchar(50),
+street varchar(50),
+city varchar(50),
+state varchar(10),
+zip_code int
+);
+
+-- Table Name 'order_items' 
+
+create table order_items
+(
+order_id int,
+item_id int,
+product_id int,
+quantity int,
+list_price float,
+discount float
+);
+
+-- Table Name 'orders'
 
 
+create table orders
+(
+order_id int,
+customer_id int,
+order_status int,
+order_date date,
+required_date date,
+shipped_date date,
+store_id int,
+staff_id int
+);
 
+-- Table Name 'products'
+
+create table products
+(
+product_id int,
+product_name varchar(60),
+brand_id int,
+category_id int,
+model_year int,
+list_price float
+);
+
+-- Table Name 'staff' 
+
+create table staff
+(
+staff_id int,
+first_name varchar(20),
+last_name varchar(30),
+email varchar(50),
+phone varchar(80),
+active int,
+store_id int,
+manager_id varchar(10)
+);
+
+-- Table Name 'stocks'
+
+create table stocks
+(
+store_id int,
+product_id int,
+quantity int
+);
+
+-- Table Name 'stores'
+
+create table stores
+(
+store_id int,
+store_name varchar(30),
+phone varchar(50),
+email varchar(40),
+street varchar(50),
+city varchar(40),
+state varchar(10),
+zip_code int
+);
 
 ```
