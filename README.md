@@ -211,6 +211,23 @@ select * from brands_trend
 
 # Data Analysis &  Insights
 
+* **Which Bike Store is most popular for sales and numbers of staffs of the stores**
+  
+```sql
+select st.store_name , count(o.order_id) as count_of_sales , count( distinct s.staff_id)as Number_of_staffs
+from stores st
+join orders o
+on o.store_id = st.store_id
+join staff s
+on s.staff_id =o.staff_id
+group by 1
+order by 2 desc
+```
+**Insights and Decision** : Determine which store generates the most sales, indicating customer preference.Increase staff in high-sales stores to improve customer service and handle demand better.
+
+![image](https://github.com/user-attachments/assets/12283330-58ae-4846-b4fd-bd15f540c77c)
+
+
 * **List Top Five customer bought most expensive Bike(dollar)**
 
 ```sql
@@ -362,7 +379,7 @@ FROM MonthlySales
 ORDER BY brand_name, months::INTEGER;
 ```
 
-**Insights and Decision** :
+**Insights and Decision** : dentify which months have peak sales and which months experience slow sales.Determine which bike brands contribute the most and least to revenue.Invest in advertising and distribution for top-selling brands while reconsidering low-performing ones.
 
 
 
