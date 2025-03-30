@@ -26,7 +26,7 @@ This project showcases the implementation of a Bike Sales Data Analysis using SQ
 
 An **Entity-Relationship Diagram (ERD)** is a visual representation of a database's structure, illustrating entities (tables), their attributes (columns), and relationships (connections) between them. It helps design, understand, and optimize databases by mapping how data is organized and related, ensuring efficient database management and querying.
 
+![Screenshot 2025-03-30 200750](https://github.com/user-attachments/assets/5f214004-677b-4f62-9e62-28a35424e502)
+
 **Database Creation**: Created a database named Bike Data Store
 **Table Creation**
-
-![Screenshot 2025-03-30 200750](https://github.com/user-attachments/assets/5f214004-677b-4f62-9e62-28a35424e502)
