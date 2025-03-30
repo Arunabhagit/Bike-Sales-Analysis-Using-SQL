@@ -4,7 +4,7 @@
 
 **Project Title** : Bike Sales Data Analysis
 
-**Database** : Bike Data Store
+**Database** : 'Bike Data Store'
 
 **Tool Used** : PostgreSQL
 
@@ -40,6 +40,4 @@ create table brands(
 brand_id int,
 brand_name varchar(20)
 )
-
-
 '''
