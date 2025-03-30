@@ -29,3 +29,4 @@ An **Entity-Relationship Diagram (ERD)** is a visual representation of a databas
 **Database Creation**: Created a database named Bike Data Store
 **Table Creation**
 
+![Screenshot 2025-03-30 200750](https://github.com/user-attachments/assets/5f214004-677b-4f62-9e62-28a35424e502)
