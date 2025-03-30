@@ -32,6 +32,16 @@ An **Entity-Relationship Diagram (ERD)** is a visual representation of a databas
 
 **Table Creation** : Create table brands, categories , customers , order_items , orders , products , staff ,  stocks and stores 
 
-```
-ABC
+```sql
+-- Table Name 'brands'
+
+create table brands(
+brand_id int,
+brand_name varchar(20)
+);
+
+
+
+
+
 ```
