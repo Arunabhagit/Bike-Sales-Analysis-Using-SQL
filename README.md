@@ -210,5 +210,29 @@ order by 3 desc
 select * from brands_trend
 ```
 
+**Data Analysis &  Insights**
+
+List Top Five customer bought most expensive Bike(dollar)
+
+```sql
+
+select c.first_name,c.last_name, o.order_id,oi.list_price as Price 
+from customers c
+join orders o 
+on c.customer_id = o.customer_id
+join order_items oi
+on o.order_id = oi.order_id
+group by o.order_id,c.first_name,c.last_name,Price 
+order by Price desc
+limit 5
+
+```
+**Insights and Decision** : Identifying customers who are willing to spend the most on premium bikes.
+Tailoring marketing efforts to target high-spending customers with exclusive offers or loyalty programs.
+
+![Screenshot 2025-03-30 214552](https://github.com/user-attachments/assets/c63f9d4e-9546-4ade-a3cd-cfbd83884717)
+
+
+Top 3 Brands of bike which got highest Orders 
 
 
