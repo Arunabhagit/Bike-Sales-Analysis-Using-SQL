@@ -171,7 +171,7 @@ on o.customer_id = c.customer_id
 where o.order_date = '2018-04-11'
 ```
 
-**Update** : Update The Price of  Heller Shagamaw Frame - 2016 bike increased 200 dollar
+**Update** : Update The Price of  Heller Shagamaw Frame - 2016 bike increased 200 dollar.
 
 ```sql
 
@@ -179,9 +179,36 @@ update products
 set list_price = '1520.99'
 where product_name = 'Heller Shagamaw Frame - 2016'
 
-'''
+```
 
+**Delete** : Delete the record of the staff member named Marcelene Boyer because he has resigned.
 
+```sql
+
+select * from staff where first_name = 'Marcelene'
+
+delete from staff
+where staff_id = 6
+
+```
+ **CTAS (Create Table As Select)**:
+Create a table showing the count of orders and the total sales amount for all bike brands.
+
+```sql
+create table brands_trend as 
+select b.brand_name , count(o.order_id), round(sum(oi.list_price))
+from brands b
+join products p
+on b.brand_id = p.brand_id
+join order_items oi
+on oi.product_id = p.product_id
+join orders o
+on oi.order_id = o.order_id
+group by 1
+order by 3 desc
+
+select * from brands_trend
+```
 
 
 
