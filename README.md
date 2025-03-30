@@ -4,7 +4,7 @@
 
 **Project Title** : Bike Sales Data Analysis
 
-**Database** : 'Bike Data Store'
+**Database** : Bike Data Store
 
 **Tool Used** : PostgreSQL
 
@@ -32,12 +32,11 @@ An **Entity-Relationship Diagram (ERD)** is a visual representation of a databas
 
 **Table Creation** : Create table brands, categories , customers , order_items , orders , products , staff ,  stocks and stores 
 
-'''sql
-
+***sql
 -- Table Name 'brands'
 
 create table brands(
 brand_id int,
 brand_name varchar(20)
-)
-'''
+);
+***
