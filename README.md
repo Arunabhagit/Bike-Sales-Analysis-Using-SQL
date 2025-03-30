@@ -254,4 +254,24 @@ limit 3
 ![graph_visualiser-1743353395235](https://github.com/user-attachments/assets/937e8549-c12d-419e-a43f-450229d99a3b)
 
 * **Name of top 10 Bikes who got most discount**
- 
+
+ ```sql
+select b.brand_name, c.category_name, p.product_name , oi.discount * 100 as Discount_Percent
+from brands b
+join products p
+on p.brand_id = b.brand_id
+join categories c
+on p.category_id = c.category_id
+join order_items oi
+on p.product_id = oi.product_id
+group by 1,2,3,4
+order by 4 desc
+limit 10
+ ```
+**Insights and Decision** :   Understanding which bikes receive the highest discounts and whether this leads to increased sales.Identifying if high discounts are affecting overall profitability.
+
+![Screenshot 2025-03-30 222643](https://github.com/user-attachments/assets/1aab098e-90df-4b2a-a155-d8eb5b5ffbcb)
+
+
+
+
