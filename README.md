@@ -273,5 +273,39 @@ limit 10
 ![Screenshot 2025-03-30 222643](https://github.com/user-attachments/assets/1aab098e-90df-4b2a-a155-d8eb5b5ffbcb)
 
 
+* **Count number of Bikes has not shipped for each Brands**
 
+```sql
+select b.brand_name , count(o.order_id) as Number_of_items_not_shipped 
+from brands b 
+join products p
+on p.brand_id = b.brand_id
+join order_items oi
+on oi.product_id = p.product_id
+join orders o
+on o.order_id = oi.order_id
+where shipped_date is null
+group by 1
+order by 2 desc
+```
+**Insights and Decision** : High numbers of unshipped bikes could indicate logistical or supply chain problems.Optimize shipping processes to reduce unshipped orders.
 
+![Screenshot 2025-03-30 231115](https://github.com/user-attachments/assets/06d07393-dfc1-444b-bf54-9ac82909e725)
+
+* **Bike brand sales across different cities**
+
+ ```sql
+select b.brand_name , c.city , count(o.order_id) as number_of_orders,
+
+ROW_Number() over(partition by  b.brand_name order by count(o.order_id) desc) as rank
+from brands b 
+join products p
+on p.brand_id = b.brand_id
+join order_items oi
+on oi.product_id = p.product_id
+join orders o
+on oi.order_id = o.order_id
+join customers c
+on c.customer_id = o.customer_id
+group by  b.brand_name,c.city
+ ```
