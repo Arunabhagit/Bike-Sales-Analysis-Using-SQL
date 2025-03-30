@@ -140,3 +140,48 @@ zip_code int
 );
 
 ```
+
+**CRUD Operations** : 
+
+**Create** – Inserting new records into a database.
+
+**Read** – Retrieving existing records from a database.
+
+**Update** – Modifying existing records in a database.
+
+**Delete** – Removing records from a database.
+
+**Create** : Create a new record of a staff name as Jhon Humphrey into the staff table
+
+```sql
+insert into staff
+values (11,'Jhon',' Humphrey','jhon.humphrey@bikes.shop','(516) 480-7845',1,2,7);
+```
+**Read** : Retrieve the names of customers who placed an order on April 11, 2018, along with the bike they ordered.
+
+```sql
+select c.first_name, c.last_name , p.product_name 
+from products p
+join order_items oi
+on p.product_id = oi.product_id
+join orders o
+on oi.order_id = o.order_id
+join customers c
+on o.customer_id = c.customer_id
+where o.order_date = '2018-04-11'
+```
+
+**Update** : Update The Price of  Heller Shagamaw Frame - 2016 bike increased 200 dollar
+
+```sql
+
+update products
+set list_price = '1520.99'
+where product_name = 'Heller Shagamaw Frame - 2016'
+
+'''
+
+
+
+
+
