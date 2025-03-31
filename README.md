@@ -223,7 +223,7 @@ on s.staff_id =o.staff_id
 group by 1
 order by 2 desc
 ```
-**Insights and Decision** : Determine which store generates the most sales, indicating customer preference.Increase staff in high-sales stores to improve customer service and handle demand better.
+**Insights and Decision** : Baldwin Bikes store is most popular store with  540 bikes sold .We need to increase staff in high-sales stores to improve customer service and handle demand better.
 
 ![image](https://github.com/user-attachments/assets/12283330-58ae-4846-b4fd-bd15f540c77c)
 
@@ -243,8 +243,7 @@ order by Price desc
 limit 5
 
 ```
-**Insights and Decision** : Identifying customers who are willing to spend the most on premium bikes.
-Tailoring marketing efforts to target high-spending customers with exclusive offers or loyalty programs.
+**Insights and Decision** : Tailoring marketing efforts to target high-spending customers with exclusive offers or loyalty programs.
 
 ![Screenshot 2025-03-30 214552](https://github.com/user-attachments/assets/c63f9d4e-9546-4ade-a3cd-cfbd83884717)
 
@@ -266,7 +265,7 @@ order by 2 desc
 limit 3
 
 ```
-**Insights and Decision** : Identifying the most in-demand bike brands among customers. Investing in promotions and advertising for top-performing brands.
+**Insights and Decision** :Electra is the most in-demand bike brand with 1729 sales. Investing in promotions and advertising for top-performing brands.
 
 ![graph_visualiser-1743353395235](https://github.com/user-attachments/assets/937e8549-c12d-419e-a43f-450229d99a3b)
 
@@ -285,7 +284,7 @@ group by 1,2,3,4
 order by 4 desc
 limit 10
  ```
-**Insights and Decision** :   Understanding which bikes receive the highest discounts and whether this leads to increased sales.Identifying if high discounts are affecting overall profitability.
+**Insights and Decision** :   Electra  bikes receive the highest discounts and this leads to increased sales.Identified high discounts are affecting overall profitability.
 
 ![Screenshot 2025-03-30 222643](https://github.com/user-attachments/assets/1aab098e-90df-4b2a-a155-d8eb5b5ffbcb)
 
@@ -327,7 +326,7 @@ on c.customer_id = o.customer_id
 group by  b.brand_name,c.city
  ```
 
-**Insights and Decision** :  Identifying which bike brands perform best in different cities.Ensuring efficient supply chain management to meet city-wise demand.Promote specific bike brands based on regional preferences.
+**Insights and Decision** :  Electra and Trek bikes brands perform best in different cities like Scarsdale,Ballston Spa,Richmond Hill .Ensuring efficient supply chain management to meet city-wise demand.Promote specific bike brands based on regional preferences.
 
 
 * **Every year sales of bikes from each store**
@@ -351,7 +350,7 @@ group by  b.brand_name,c.city
 	order by  s.store_name 
   ```
 
-**Insights and Decision** : Identify stores with increasing or declining sales trends.Stock more bikes in high-performing stores and reduce excess inventory in low-performing ones.
+**Insights and Decision** : Baldwin Bikes store has best perofrming every year sales of Electra bikes .Stock more bikes in high-performing stores and reduce excess inventory in low-performing ones.
 
 * **Monthly sales of each bike brands and 1 year total revenue**
 
@@ -379,7 +378,42 @@ FROM MonthlySales
 ORDER BY brand_name, months::INTEGER;
 ```
 
-**Insights and Decision** : dentify which months have peak sales and which months experience slow sales.Determine which bike brands contribute the most and least to revenue.Invest in advertising and distribution for top-selling brands while reconsidering low-performing ones.
+**Insights and Decision** : December month have peak sales and May month experience slow sales.Electra bike brands contribute the most and least to revenue.Invest in advertising and distribution for top-selling brands while reconsidering low-performing ones.
 
 
+**Categorization of Bike Brands Based on Price**
 
+```sql
+create table price_category as 
+select  p.product_name , b.brand_name , oi.list_price,
+case 
+	when oi.list_price  > 7000 then 'Exclusive'
+	when oi.list_price  <= 7000 and  oi.list_price  > 5000 then 'Expensive '
+	when oi.list_price  <= 5000 and  oi.list_price > 3000 then 'High-quality'
+	when oi.list_price  <= 3000 and oi.list_price  > 1500 then 'Moderate'
+	when  oi.list_price <= 1500 and oi.list_price > 100 then 'Affordable'
+	else 'Unknown'
+end as price_Category 
+from order_items oi 
+join products p
+on p.product_id = oi.product_id
+join brands b
+on b.brand_id = p.brand_id
+group by 1,2,3
+
+select * from price_category
+
+**Insights and Decision** : Average Customer choosing Moderate and Affordable price_category . We can increase sales of these categories bike will attract more customers.
+
+# Conculsion
+
+The Bike Sales Data Analysis using SQL revealed key insights into sales trends, customer preferences, and brand performance. High-end bikes dominated revenue, while mid-range models had the highest sales volume. Seasonal trends influenced demand, and loyal customers contributed significantly to sales. These insights can drive strategic pricing and marketing decisions.
+
+# Reference
+
+1. This full dataset is here : https://www.kaggle.com/datasets/arunabha9163/bike-store-data
+2. For Learn SQL From Beginning : https://www.w3schools.com/sql/
+
+# About Me
+
+Go to My Linkedin Profile : https://www.linkedin.com/in/arunabha2024/
