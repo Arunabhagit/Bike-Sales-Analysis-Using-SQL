@@ -402,7 +402,7 @@ on b.brand_id = p.brand_id
 group by 1,2,3
 
 select * from price_category
-
+```
 **Insights and Decision** : Average Customer choosing Moderate and Affordable price_category . We can increase sales of these categories bike will attract more customers.
 
 # Conculsion
