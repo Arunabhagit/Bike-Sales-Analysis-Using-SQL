@@ -411,9 +411,10 @@ The Bike Sales Data Analysis using SQL revealed key insights into sales trends, 
 
 # Reference
 
-1. This full dataset is here : https://www.kaggle.com/datasets/arunabha9163/bike-store-data
-2. For Learn SQL From Beginning : https://www.w3schools.com/sql/
+1. **This full dataset is here** : https://www.kaggle.com/datasets/arunabha9163/bike-store-data
+2. **For Learn SQL From Beginning** : https://www.w3schools.com/sql/
+3. **For Learn full DBMS** : https://www.tutorialspoint.com/dbms/index.htm
 
 # About Me
 
-Go to My Linkedin Profile : https://www.linkedin.com/in/arunabha2024/
+**Go to My Linkedin Profile** : https://www.linkedin.com/in/arunabha2024/
